@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { QrCodeProvider } from "@/context/qr-context";
 import { SettingsProvider } from "@/context/settings-context";
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,7 +28,10 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <QrCodeProvider>
-            <SettingsProvider>{children}</SettingsProvider>
+            <SettingsProvider>
+              {children}
+              <Analytics />
+            </SettingsProvider>
           </QrCodeProvider>
         </ThemeProvider>
       </body>
