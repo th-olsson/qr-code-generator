@@ -36,7 +36,7 @@ export function DownloadSettings() {
       <Accordion type="single" collapsible defaultValue="download-settings">
         <AccordionItem value="download-settings">
           <AccordionTrigger>Options</AccordionTrigger>
-          <AccordionContent>
+          <AccordionContent className="px-4">
             <div className="flex flex-col p-1 gap-4">
               <div className="flex flex-col gap-2">
                 <Label>Background</Label>

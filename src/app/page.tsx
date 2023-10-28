@@ -8,22 +8,26 @@ import {
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
 
 export default function Home() {
   return (
-    <main className="max-w-3xl mx-auto p-4 flex flex-col gap-6">
+    <main className="max-w-4xl mx-auto p-4 flex flex-col gap-6">
       <h1 className="text-2xl font-bold text-center sm:text-start">
         QR Code Generator
       </h1>
       <div className="flex flex-col sm:flex-row justify-between gap-4">
-        <Card className="w-full">
-          <CardHeader />
-          <CardContent>
+        <Card className="w-full h-fit">
+          <CardHeader>
             <TextInput />
+          </CardHeader>
+          <Separator />
+          <CardContent className="pb-0">
             <DownloadSettings />
           </CardContent>
         </Card>
-        <Card className="px-4">
+
+        <Card className="flex flex-col items-center justify-center px-6 h-fit sticky top-0">
           <CardHeader></CardHeader>
           <CardContent className="flex justify-center">
             <QrCode />
