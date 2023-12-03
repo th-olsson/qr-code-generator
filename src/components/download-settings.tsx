@@ -1,8 +1,6 @@
 "use client";
 
-import { useState } from "react";
 import { QRCodeSVG } from "qrcode.react";
-import { Switch } from "./ui/switch";
 import { Label } from "./ui/label";
 import { Input } from "./ui/input";
 import { useQrCode } from "@/context/qr-context";
@@ -35,7 +33,7 @@ export function DownloadSettings() {
 
       <Accordion type="single" collapsible defaultValue="download-settings">
         <AccordionItem value="download-settings">
-          <AccordionTrigger>Options</AccordionTrigger>
+          <AccordionTrigger>Download Options</AccordionTrigger>
           <AccordionContent className="px-4">
             <div className="flex flex-col p-1 gap-4">
               <div className="flex flex-col gap-2">

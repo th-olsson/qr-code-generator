@@ -4,20 +4,26 @@ import { createContext, useContext, useMemo, useState } from "react";
 
 const QrCodeContext = createContext({});
 
-type Context = {
-  value: string;
-  setValue: (value: string) => void;
+type State = { value: string; setValue: (value: string) => void };
+
+type Context = State & {
+  textInput: State;
+  urlInput: State;
 };
 
 export function QrCodeProvider({ children }: { children: React.ReactNode }) {
-  const [value, setValue] = useState<Context["value"]>("");
+  const [value, setValue] = useState("");
+  const [textValue, setTextValue] = useState("");
+  const [urlValue, setUrlValue] = useState("https://zqr.se/");
 
-  const providerValue = useMemo(() => {
+  const providerValue = useMemo<Context>(() => {
     return {
       value,
       setValue,
+      textInput: { value: textValue, setValue: setTextValue },
+      urlInput: { value: urlValue, setValue: setUrlValue },
     };
-  }, [value, setValue]);
+  }, [value, textValue, urlValue]);
 
   return (
     <QrCodeContext.Provider value={providerValue}>
