@@ -10,18 +10,16 @@ import {
 } from "@/components/ui/popover";
 import { useDownloadOptions } from "@/context/download-options-context";
 import { Settings2 } from "lucide-react";
-import { RadioGroup, RadioGroupItem } from "./ui/radio-group";
 import { Switch } from "./ui/switch";
 
 export function DownloadPopover() {
-  const { size, setSize, transparent, setTransparent, format, setFormat } =
-    useDownloadOptions();
+  const { size, setSize, transparent, setTransparent } = useDownloadOptions();
 
   return (
     <Popover>
       <PopoverTrigger asChild>
         <Button
-          variant="outline"
+          variant="secondary"
           size="icon"
           aria-label="open download options"
         >
@@ -31,29 +29,9 @@ export function DownloadPopover() {
       <PopoverContent>
         <div className="grid gap-4">
           <div className="space-y-2">
-            <h4 className="font-medium leading-none">Download options</h4>
+            <h4 className="font-medium leading-none">Options</h4>
           </div>
           <div className="grid gap-4">
-            <fieldset>
-              <RadioGroup
-                value={format}
-                onValueChange={setFormat}
-                className="flex items-center justify-between"
-              >
-                <legend className="text-sm font-medium">Format</legend>
-                <div className="flex gap-2">
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="PNG" id="PNG" />
-                    <Label htmlFor="PNG">PNG</Label>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="SVG" id="SVG" />
-                    <Label htmlFor="SVG">SVG</Label>
-                  </div>
-                </div>
-              </RadioGroup>
-            </fieldset>
-
             <div className="flex items-center justify-between gap-20">
               <Label htmlFor="size" className="whitespace-nowrap">
                 Size (px)

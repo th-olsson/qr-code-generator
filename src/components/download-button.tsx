@@ -1,28 +1,40 @@
 "use client";
 
-import { downloadAsPNG, downloadAsSVG } from "@/utils";
+import { downloadAsPNG, downloadAsSVG, rightIcon } from "@/utils";
 import { Button } from "./ui/button";
 import { useDownloadOptions } from "@/context/download-options-context";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { ChevronDown, Download } from "lucide-react";
 
 export function DownloadButton() {
-  const { size, format } = useDownloadOptions();
+  const { size } = useDownloadOptions();
 
   const id = "qr-code";
   const name = "QR";
 
   return (
-    <Button
-      aria-label={`Download QR code as ${format}`}
-      className="w-full"
-      variant="outline"
-      onClick={() =>
-        format === "SVG"
-          ? downloadAsSVG(id, name)
-          : downloadAsPNG(id, name, size)
-      }
-      disabled={Number.isNaN(size) || size < 1}
-    >
-      Download
-    </Button>
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button className="w-full flex justify-between">
+          <span>Download</span>
+          <ChevronDown className={rightIcon} />
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent>
+        <DropdownMenuItem onClick={() => downloadAsPNG(id, name, size)}>
+          Download PNG
+          <Download className={rightIcon} />
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => downloadAsSVG(id, name)}>
+          Download SVG
+          <Download className={rightIcon} />
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 }
