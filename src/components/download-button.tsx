@@ -2,7 +2,7 @@
 
 import { downloadAsPNG, downloadAsSVG, rightIcon } from "@/utils";
 import { Button } from "./ui/button";
-import { useDownloadOptions } from "@/context/download-options-context";
+import { useOptions } from "@/context/options-context";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -12,7 +12,7 @@ import {
 import { ChevronDown, Download } from "lucide-react";
 
 export function DownloadButton() {
-  const { size } = useDownloadOptions();
+  const { size } = useOptions();
 
   const id = "qr-code";
   const name = "QR";

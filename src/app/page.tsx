@@ -1,5 +1,5 @@
 import { DownloadButton } from "@/components/download-button";
-import { DownloadPopover } from "@/components/download-options";
+import { OptionsPopover } from "@/components/options-popover";
 import { QrCode } from "@/components/qr-code";
 import { QrInputs } from "@/components/qr-input/qr-inputs";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
@@ -22,7 +22,7 @@ export default function Home() {
             <div className="flex flex-row gap-2 justify-between w-full pt-6">
               <DownloadButton />
               <div>
-                <DownloadPopover />
+                <OptionsPopover />
               </div>
             </div>
           </CardContent>

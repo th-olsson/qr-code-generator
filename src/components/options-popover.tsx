@@ -8,12 +8,12 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { useDownloadOptions } from "@/context/download-options-context";
+import { useOptions } from "@/context/options-context";
 import { Settings2 } from "lucide-react";
 import { Switch } from "./ui/switch";
 
-export function DownloadPopover() {
-  const { size, setSize, transparent, setTransparent } = useDownloadOptions();
+export function OptionsPopover() {
+  const { size, setSize, transparent, setTransparent } = useOptions();
 
   return (
     <Popover>

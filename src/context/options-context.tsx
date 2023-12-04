@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useMemo, useState } from "react";
 
-const DownloadOptionsContext = createContext({});
+const OptionsContext = createContext({});
 
 type Context = {
   size: number;
@@ -11,11 +11,7 @@ type Context = {
   setTransparent: (transparent: boolean) => void;
 };
 
-export function DownloadOptionsProvider({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export function OptionsProvider({ children }: { children: React.ReactNode }) {
   const [size, setSize] = useState<Context["size"]>(128);
   const [transparent, setTransparent] = useState<Context["transparent"]>(false);
 
@@ -29,11 +25,10 @@ export function DownloadOptionsProvider({
   }, [size, transparent]);
 
   return (
-    <DownloadOptionsContext.Provider value={providerValue}>
+    <OptionsContext.Provider value={providerValue}>
       {children}
-    </DownloadOptionsContext.Provider>
+    </OptionsContext.Provider>
   );
 }
 
-export const useDownloadOptions = () =>
-  useContext(DownloadOptionsContext) as Context;
+export const useOptions = () => useContext(OptionsContext) as Context;

@@ -2,11 +2,11 @@
 
 import { QRCodeSVG } from "qrcode.react";
 import { useQrCode } from "@/context/qr-context";
-import { useDownloadOptions } from "@/context/download-options-context";
+import { useOptions } from "@/context/options-context";
 
 export function QrCode() {
   const { value } = useQrCode();
-  const { size, transparent } = useDownloadOptions();
+  const { size, transparent } = useOptions();
 
   return (
     <div className="bg-white p-6 border w-fit">
