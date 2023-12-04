@@ -13,7 +13,7 @@ type Context = State & {
 
 export function QrCodeProvider({ children }: { children: React.ReactNode }) {
   const [value, setValue] = useState("");
-  const [textValue, setTextValue] = useState("");
+  const [textValue, setTextValue] = useState("Your text here");
   const [urlValue, setUrlValue] = useState("https://zqr.se/");
 
   const providerValue = useMemo<Context>(() => {
