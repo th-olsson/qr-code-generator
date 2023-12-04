@@ -1,16 +1,11 @@
 "use client";
 
-import { downloadAsPNG, downloadAsSVG, leftIcon } from "@/utils";
+import { downloadAsPNG, downloadAsSVG } from "@/utils";
 import { Button } from "./ui/button";
-import { Download } from "lucide-react";
 import { useSettings } from "@/context/settings-context";
 
-type Props = {
-  format: "SVG" | "PNG";
-};
-
-export function DownloadButton({ format }: Props) {
-  const { size } = useSettings();
+export function DownloadButton() {
+  const { size, format } = useSettings();
 
   const id = "qr-code";
   const name = "QR";
@@ -19,14 +14,15 @@ export function DownloadButton({ format }: Props) {
     <Button
       aria-label={`Download QR code as ${format}`}
       className="w-full"
+      variant="outline"
       onClick={() =>
         format === "SVG"
           ? downloadAsSVG(id, name)
           : downloadAsPNG(id, name, size)
       }
+      disabled={Number.isNaN(size) || size < 1}
     >
-      <Download className={leftIcon} />
-      {format}
+      Download
     </Button>
   );
 }

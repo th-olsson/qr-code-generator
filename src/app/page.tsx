@@ -1,14 +1,8 @@
 import { DownloadButton } from "@/components/download-button";
-import { DownloadSettings } from "@/components/download-settings";
+import { DownloadPopover } from "@/components/download-options";
 import { QrCode } from "@/components/qr-code";
 import { QrInputs } from "@/components/qr-input/qr-inputs";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 
 export default function Home() {
   return (
@@ -21,23 +15,17 @@ export default function Home() {
           <CardHeader>
             <QrInputs />
           </CardHeader>
-          <Separator />
-          <CardContent className="pb-0">
-            <DownloadSettings />
-          </CardContent>
         </Card>
-
-        <Card className="flex flex-col items-center justify-center px-6 h-fit sticky top-0">
-          <CardHeader></CardHeader>
-          <CardContent className="flex justify-center">
+        <Card className="flex flex-col items-center justify-center  h-fit sticky top-0">
+          <CardContent className="flex justify-center flex-col items-center p-6">
             <QrCode />
-          </CardContent>
-          <CardFooter>
-            <div className="flex flex-row gap-2 justify-between w-full">
-              <DownloadButton format="PNG" />
-              <DownloadButton format="SVG" />
+            <div className="flex flex-row gap-2 justify-between w-full pt-6">
+              <DownloadButton />
+              <div>
+                <DownloadPopover />
+              </div>
             </div>
-          </CardFooter>
+          </CardContent>
         </Card>
       </div>
     </main>

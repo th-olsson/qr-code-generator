@@ -4,25 +4,32 @@ import { createContext, useContext, useMemo, useState } from "react";
 
 const SettingsContext = createContext({});
 
+type Format = "PNG" | "SVG";
+
 type Context = {
   size: number;
   setSize: (size: number) => void;
-  bgColor: string;
-  setBgColor: (bgColor: string) => void;
+  transparent: boolean;
+  setTransparent: (transparent: boolean) => void;
+  format: Format;
+  setFormat: (format: Format) => void;
 };
 
 export function SettingsProvider({ children }: { children: React.ReactNode }) {
   const [size, setSize] = useState<Context["size"]>(128);
-  const [bgColor, setBgColor] = useState<Context["bgColor"]>("white");
+  const [transparent, setTransparent] = useState<Context["transparent"]>(false);
+  const [format, setFormat] = useState<Context["format"]>("PNG");
 
-  const providerValue = useMemo(() => {
+  const providerValue = useMemo<Context>(() => {
     return {
       size,
       setSize,
-      bgColor,
-      setBgColor,
+      transparent,
+      setTransparent,
+      format,
+      setFormat,
     };
-  }, [size, bgColor]);
+  }, [size, transparent, format]);
 
   return (
     <SettingsContext.Provider value={providerValue}>
