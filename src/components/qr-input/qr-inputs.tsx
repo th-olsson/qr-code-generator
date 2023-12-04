@@ -2,8 +2,9 @@ import { TextInput } from "./text-input";
 import { URLInput } from "./url-input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
 import { QrInputType } from "@/types";
-import { Link, Mail, Text } from "lucide-react";
+import { Link, Mail, Phone, Text } from "lucide-react";
 import { EmailInput } from "./email-input";
+import { PhoneInput } from "./phone-input";
 
 const link = "w-3 h-3 mr-1";
 
@@ -23,6 +24,10 @@ export function QrInputs() {
           <Mail className={link} />
           {QrInputType.email}
         </TabsTrigger>
+        <TabsTrigger value={QrInputType.phone}>
+          <Phone className={link} />
+          {QrInputType.phone}
+        </TabsTrigger>
       </TabsList>
       <TabsContent value={QrInputType.url}>
         <URLInput />
@@ -32,6 +37,9 @@ export function QrInputs() {
       </TabsContent>
       <TabsContent value={QrInputType.email}>
         <EmailInput />
+      </TabsContent>
+      <TabsContent value={QrInputType.phone}>
+        <PhoneInput />
       </TabsContent>
     </Tabs>
   );

@@ -10,6 +10,7 @@ type Context = State & {
   textInput: State;
   urlInput: State;
   emailInput: State;
+  phoneInput: State;
 };
 
 export function QrCodeProvider({ children }: { children: React.ReactNode }) {
@@ -17,6 +18,7 @@ export function QrCodeProvider({ children }: { children: React.ReactNode }) {
   const [textValue, setTextValue] = useState("Your text here");
   const [urlValue, setUrlValue] = useState("https://zqr.se/");
   const [emailValue, setEmailValue] = useState("example@mail.com");
+  const [phoneValue, setPhoneValue] = useState("+1 (123) 456–7890");
 
   const providerValue = useMemo<Context>(() => {
     return {
@@ -25,8 +27,9 @@ export function QrCodeProvider({ children }: { children: React.ReactNode }) {
       textInput: { value: textValue, setValue: setTextValue },
       urlInput: { value: urlValue, setValue: setUrlValue },
       emailInput: { value: emailValue, setValue: setEmailValue },
+      phoneInput: { value: phoneValue, setValue: setPhoneValue },
     };
-  }, [value, textValue, urlValue, emailValue]);
+  }, [value, textValue, urlValue, emailValue, phoneValue]);
 
   return (
     <QrCodeContext.Provider value={providerValue}>
