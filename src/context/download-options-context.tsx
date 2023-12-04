@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useMemo, useState } from "react";
 
-const SettingsContext = createContext({});
+const DownloadOptionsContext = createContext({});
 
 type Format = "PNG" | "SVG";
 
@@ -15,7 +15,7 @@ type Context = {
   setFormat: (format: Format) => void;
 };
 
-export function SettingsProvider({ children }: { children: React.ReactNode }) {
+export function DownloadOptionsProvider({ children }: { children: React.ReactNode }) {
   const [size, setSize] = useState<Context["size"]>(128);
   const [transparent, setTransparent] = useState<Context["transparent"]>(false);
   const [format, setFormat] = useState<Context["format"]>("PNG");
@@ -32,10 +32,10 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
   }, [size, transparent, format]);
 
   return (
-    <SettingsContext.Provider value={providerValue}>
+    <DownloadOptionsContext.Provider value={providerValue}>
       {children}
-    </SettingsContext.Provider>
+    </DownloadOptionsContext.Provider>
   );
 }
 
-export const useSettings = () => useContext(SettingsContext) as Context;
+export const useDownloadOptions = () => useContext(DownloadOptionsContext) as Context;

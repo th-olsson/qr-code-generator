@@ -2,10 +2,10 @@
 
 import { downloadAsPNG, downloadAsSVG } from "@/utils";
 import { Button } from "./ui/button";
-import { useSettings } from "@/context/settings-context";
+import { useDownloadOptions } from "@/context/download-options-context";
 
 export function DownloadButton() {
-  const { size, format } = useSettings();
+  const { size, format } = useDownloadOptions();
 
   const id = "qr-code";
   const name = "QR";

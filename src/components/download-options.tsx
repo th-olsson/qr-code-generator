@@ -8,15 +8,14 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { useSettings } from "@/context/settings-context";
+import { useDownloadOptions } from "@/context/download-options-context";
 import { Settings2 } from "lucide-react";
-import { Checkbox } from "./ui/checkbox";
 import { RadioGroup, RadioGroupItem } from "./ui/radio-group";
 import { Switch } from "./ui/switch";
 
 export function DownloadPopover() {
   const { size, setSize, transparent, setTransparent, format, setFormat } =
-    useSettings();
+    useDownloadOptions();
 
   return (
     <Popover>

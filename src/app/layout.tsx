@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { QrCodeProvider } from "@/context/qr-context";
-import { SettingsProvider } from "@/context/settings-context";
+import { DownloadOptionsProvider } from "@/context/download-options-context";
 import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -28,10 +28,10 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <QrCodeProvider>
-            <SettingsProvider>
+            <DownloadOptionsProvider>
               {children}
               <Analytics />
-            </SettingsProvider>
+            </DownloadOptionsProvider>
           </QrCodeProvider>
         </ThemeProvider>
       </body>
