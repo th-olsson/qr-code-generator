@@ -35,7 +35,7 @@ export function QrCodeProvider({ children }: { children: React.ReactNode }) {
   const [phone, setPhone] = useState("+1 (123) 456–7890");
   const [wifi, setWifi] = useState<WifiInput>({
     ssid: "wifi_name",
-    encryption: WifiEncryption.wep,
+    encryption: WifiEncryption.wpa,
     password: "wifi_password",
     hidden: "false",
   });

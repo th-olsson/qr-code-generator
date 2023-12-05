@@ -29,6 +29,12 @@ export function WifiInput() {
         value={wifi.ssid}
         onChange={(e) => setWifi({ ...wifi, ssid: e.target.value })}
       />
+      <Label htmlFor="wifi-password">Password</Label>
+      <Input
+        id="wifi-password"
+        value={wifi.password}
+        onChange={(e) => setWifi({ ...wifi, password: e.target.value })}
+      />
       <Label htmlFor="wifi-encryption">Encryption</Label>
       <Select
         defaultValue={encryption}
@@ -44,17 +50,13 @@ export function WifiInput() {
           <SelectValue />
         </SelectTrigger>
         <SelectContent>
+          <SelectItem value={WifiEncryption.wpa}>
+            WPA/WPA2/WPA3 (Typically used)
+          </SelectItem>
           <SelectItem value={WifiEncryption.wep}>WEP</SelectItem>
-          <SelectItem value={WifiEncryption.wpa}>WPA</SelectItem>
           <SelectItem value={WifiEncryption.blank}>No encryption</SelectItem>
         </SelectContent>
       </Select>
-      <Label htmlFor="wifi-password">Password</Label>
-      <Input
-        id="wifi-password"
-        value={wifi.password}
-        onChange={(e) => setWifi({ ...wifi, password: e.target.value })}
-      />
       <Label htmlFor="wifi-hidden">WiFi is hidden</Label>
       <Select
         defaultValue={hidden}
