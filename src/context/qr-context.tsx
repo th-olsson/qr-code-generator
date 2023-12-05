@@ -19,11 +19,11 @@ type WifiInput = {
   hidden: WifiHidden;
 };
 
-type Context = TextInput & {
-  textInput: TextInput;
-  urlInput: TextInput;
-  emailInput: TextInput;
-  phoneInput: TextInput;
+type Context = { value: string; setValue: (value: string) => void } & {
+  textInput: { text: string; setText: (text: string) => void };
+  urlInput: { url: string; setUrl: (url: string) => void };
+  emailInput: { email: string; setEmail: (value: string) => void };
+  phoneInput: { phone: string; setPhone: (value: string) => void };
   wifiInput: { wifi: WifiInput; setWifi: (wifi: WifiInput) => void };
 };
 
@@ -44,10 +44,10 @@ export function QrCodeProvider({ children }: { children: React.ReactNode }) {
     return {
       value,
       setValue,
-      textInput: { value: text, setValue: setText },
-      urlInput: { value: url, setValue: setUrl },
-      emailInput: { value: email, setValue: setEmail },
-      phoneInput: { value: phone, setValue: setPhone },
+      textInput: { text, setText },
+      urlInput: { url, setUrl },
+      emailInput: { email, setEmail },
+      phoneInput: { phone, setPhone },
       wifiInput: { wifi, setWifi },
     };
   }, [value, text, url, email, phone, wifi]);

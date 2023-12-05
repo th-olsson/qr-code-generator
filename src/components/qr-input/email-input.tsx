@@ -7,11 +7,11 @@ import { Input } from "@/components/ui/input";
 import { useEffect } from "react";
 
 export function EmailInput() {
-  const { emailInput, setValue: setQrValue } = useQrCode();
-  const { value, setValue } = emailInput;
+  const { emailInput, setValue } = useQrCode();
+  const { email, setEmail } = emailInput;
 
   useEffect(() => {
-    setQrValue(`mailto:${value}`);
+    setValue(`mailto:${email}`);
   });
 
   return (
@@ -19,8 +19,8 @@ export function EmailInput() {
       <Label htmlFor="email-input">{QrInputType.email}</Label>
       <Input
         id="email-input"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
       />
     </div>
   );

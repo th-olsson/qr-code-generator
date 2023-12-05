@@ -7,11 +7,11 @@ import { Input } from "@/components/ui/input";
 import { useEffect } from "react";
 
 export function URLInput() {
-  const { urlInput, setValue: setQrValue } = useQrCode();
-  const { value, setValue } = urlInput;
+  const { urlInput, setValue } = useQrCode();
+  const { url, setUrl } = urlInput;
 
   useEffect(() => {
-    setQrValue(value);
+    setValue(url);
   });
 
   return (
@@ -19,8 +19,8 @@ export function URLInput() {
       <Label htmlFor="url-input">{QrInputType.url}</Label>
       <Input
         id="url-input"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
+        value={url}
+        onChange={(e) => setUrl(e.target.value)}
       />
     </div>
   );

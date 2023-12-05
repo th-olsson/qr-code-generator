@@ -7,11 +7,11 @@ import { QrInputType } from "@/types";
 import { useEffect } from "react";
 
 export function TextInput() {
-  const { textInput, setValue: setQrValue } = useQrCode();
-  const { value, setValue } = textInput;
+  const { textInput, setValue } = useQrCode();
+  const { text, setText } = textInput;
 
   useEffect(() => {
-    setQrValue(value);
+    setValue(text);
   });
 
   return (
@@ -19,8 +19,8 @@ export function TextInput() {
       <Label htmlFor="text-input">{QrInputType.text}</Label>
       <Textarea
         id="text-input"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
+        value={text}
+        onChange={(e) => setText(e.target.value)}
       />
     </div>
   );

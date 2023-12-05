@@ -7,11 +7,11 @@ import { Input } from "@/components/ui/input";
 import { useEffect } from "react";
 
 export function PhoneInput() {
-  const { phoneInput, setValue: setQrValue } = useQrCode();
-  const { value, setValue } = phoneInput;
+  const { phoneInput, setValue } = useQrCode();
+  const { phone, setPhone } = phoneInput;
 
   useEffect(() => {
-    setQrValue(`tel:${value}`);
+    setValue(`tel:${phone}`);
   });
 
   return (
@@ -19,8 +19,8 @@ export function PhoneInput() {
       <Label htmlFor="phone-input">{QrInputType.phone}</Label>
       <Input
         id="phone-input"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
+        value={phone}
+        onChange={(e) => setPhone(e.target.value)}
       />
     </div>
   );
