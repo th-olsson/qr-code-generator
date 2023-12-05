@@ -9,7 +9,7 @@ export function QrCode() {
   const { size, transparent, level } = useOptions();
 
   return (
-    <div className="bg-white p-6 border w-fit">
+    <div className="bg-white p-5 border w-fit">
       <QRCodeSVG value={value} level={level} />
       {/* Hidden downloadable QR code */}
       <QRCodeSVG

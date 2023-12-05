@@ -35,7 +35,7 @@ export function OptionsPopover() {
           size="icon"
           aria-label="open download options"
         >
-          <Settings2 />
+          <Settings2 className="h-4 w-4" />
         </Button>
       </PopoverTrigger>
       <PopoverContent>
