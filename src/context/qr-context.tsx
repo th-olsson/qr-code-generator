@@ -10,8 +10,6 @@ export enum WifiEncryption {
 }
 export type WifiHidden = "false" | "true";
 
-type TextInput = { value: string; setValue: (value: string) => void };
-
 type WifiInput = {
   ssid: string;
   encryption: WifiEncryption | "";
@@ -30,7 +28,7 @@ type Context = { value: string; setValue: (value: string) => void } & {
 export function QrCodeProvider({ children }: { children: React.ReactNode }) {
   const [value, setValue] = useState("");
   const [text, setText] = useState("Your text here");
-  const [url, setUrl] = useState("https://zqr.se/");
+  const [url, setUrl] = useState("https://zqr.vercel.app/");
   const [email, setEmail] = useState("example@email.com");
   const [phone, setPhone] = useState("+1 (123) 456–7890");
   const [wifi, setWifi] = useState<WifiInput>({

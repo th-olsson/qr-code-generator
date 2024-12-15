@@ -9,7 +9,7 @@ import { Analytics } from "@vercel/analytics/react";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "ZQR.se - Free QR Code Generator",
+  title: "ZQR - Free QR Code Generator",
   description: "Create QR codes for free. Save as PNG or SVG",
 };
 
